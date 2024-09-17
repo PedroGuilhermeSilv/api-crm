@@ -1,6 +1,6 @@
 import uuid
 
-from pydantic import BaseModel, field_validator, model_validator
+from pydantic import BaseModel, Field, field_validator, model_validator
 
 from src.category.entities.exceptions import erros
 
@@ -8,17 +8,15 @@ LENGTH_NAME = 150
 
 
 class Category(BaseModel):
-    id: uuid.UUID = uuid.uuid4()
+    id: uuid.UUID = Field(default_factory=uuid.uuid4)
     name: str
 
     def __str__(self):
         return f"Category: id={self.id}, name={self.name}"
 
-    @model_validator(mode="after")
+    @model_validator(mode="before")
     @classmethod
     def check_based_info(cls, data: dict) -> dict:
-        if not data.get("id"):
-            raise erros.IdIsRequired
         if not isinstance(data.get("id"), uuid.UUID):
             raise erros.IdShouldBeUUID
         if not data.get("name"):
@@ -32,4 +30,13 @@ class Category(BaseModel):
     def validate_name(cls, value: str):
         if len(value) > LENGTH_NAME:
             raise erros.NameShouldBeLessThan150Characters
+        return value
+
+    @field_validator("id")
+    @classmethod
+    def validate_id(cls, value: uuid.UUID):
+        if not value:
+            raise erros.IdIsRequired
+        if not isinstance(value, uuid.UUID):
+            raise erros.IdShouldBeUUID
         return value

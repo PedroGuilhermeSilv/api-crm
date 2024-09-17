@@ -1,24 +1,23 @@
 from abc import ABC, abstractmethod
 
-from src.category.entities.dto.input import CategoryCreateInput, CategoryUpdateInput
-from src.category.entities.dto.output import CategoryOutput
+from src.category.entities.models import Category
 
 
 class CategoryRepository(ABC):
     @abstractmethod
-    def create(self, category_input: CategoryCreateInput) -> CategoryOutput:
+    def create(self, category_input: Category) -> Category:
         pass
 
     @abstractmethod
-    def get(self, category_id: int) -> CategoryOutput:
+    def get(self, category_id: int) -> Category:
         pass
 
     @abstractmethod
-    def list(self) -> list[CategoryOutput]:
+    def list(self) -> list[Category]:
         pass
 
     @abstractmethod
-    def update(self, category: CategoryUpdateInput) -> CategoryOutput:
+    def update(self, category: Category) -> Category:
         pass
 
     @abstractmethod

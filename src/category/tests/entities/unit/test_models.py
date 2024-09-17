@@ -18,9 +18,9 @@ class TestCreateCategoy:
         assert str(exc.value) == "Name should be less than 150 characters"
 
     def test_create_with_id_empty(self):
-        with pytest.raises(Exception) as exc:
-            Category(name="name")
-        assert str(exc.value) == "Id is required"
+        category = Category(name="name")
+        assert category.id is not None
+        assert isinstance(category.id, uuid.UUID)
 
     def test_create_with_id_not_uuid(self):
         with pytest.raises(Exception) as exc:

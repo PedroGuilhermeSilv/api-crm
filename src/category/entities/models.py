@@ -8,13 +8,13 @@ LENGTH_NAME = 150
 
 
 class Category(BaseModel):
-    id: uuid.UUID
+    id: uuid.UUID = uuid.uuid4()
     name: str
 
     def __str__(self):
         return f"Category: id={self.id}, name={self.name}"
 
-    @model_validator(mode="before")
+    @model_validator(mode="after")
     @classmethod
     def check_based_info(cls, data: dict) -> dict:
         if not data.get("id"):

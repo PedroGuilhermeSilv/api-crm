@@ -47,3 +47,5 @@ tomlkit==0.13.2
 typing-extensions==4.12.2
 tzdata==2024.1; sys_platform == "win32"
 virtualenv==20.26.5
+boto3==1.36.20
+django-storages==1.14.4

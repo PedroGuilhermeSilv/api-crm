@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "src.core.user.infra.django",
     "src.core.product.infra.django",
+    "storages",
 ]
 
 MIDDLEWARE = [
@@ -170,6 +171,6 @@ STATIC_URL = "static/"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-STATIC_URL = "static/"
+
 STATIC_ROOT = BASE_DIR / "framework/static"
 STATIC_ROOT = BASE_DIR / "framework/staticfiles"

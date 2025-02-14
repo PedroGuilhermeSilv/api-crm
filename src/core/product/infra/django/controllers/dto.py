@@ -1,4 +1,5 @@
 import uuid
+from typing import Any
 
 from ninja import Schema
 
@@ -7,16 +8,15 @@ class Error(Schema):
     message: str
 
 
-class ProductCreateDto(Schema):
+class ProductCreateInput(Schema):
     name: str
     description: str
     price: float
     stock: int
     description: str
-    image_url: str
 
 
-class ProductOutputDto(Schema):
+class ProductCreateOutput(Schema):
     id: uuid.UUID
     name: str
     description: str
@@ -26,8 +26,8 @@ class ProductOutputDto(Schema):
 
 
 response = {
-    201: ProductOutputDto,
-    200: ProductOutputDto,
+    201: ProductCreateOutput,
+    200: ProductCreateOutput,
     404: Error,
     409: Error,
     400: Error,

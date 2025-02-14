@@ -5,3 +5,4 @@
 .ssh/
 __pypackages__
 .pytest_cache
+.env

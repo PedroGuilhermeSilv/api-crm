@@ -25,6 +25,7 @@ dependencies = [
     "django-cockroachdb>=5.1",
     "django-storages>=1.14.4",
     "boto3>=1.36.20",
+    "uvicorn>=0.34.2",
 ]
 requires-python = ">=3.11"
 readme = "README.md"

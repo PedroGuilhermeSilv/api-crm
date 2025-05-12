@@ -4,11 +4,8 @@
 [metadata]
 groups = ["default", "dev"]
 strategy = ["cross_platform", "inherit_metadata"]
-lock_version = "4.5.0"
-content_hash = "sha256:abec00bc52d20ae683e78634cbd84bfa5dd3e376e29a221defadafb34dad4cef"
-
-[[metadata.targets]]
-requires_python = ">=3.11"
+lock_version = "4.4.1"
+content_hash = "sha256:8f89730d0b304e08ebb2038b4fabde7ce2e4c39a707fe8f10df41cfe25323cfa"
 
 [[package]]
 name = "annotated-types"
@@ -16,9 +13,6 @@ version = "0.7.0"
 requires_python = ">=3.8"
 summary = "Reusable constraint types to use with typing.Annotated"
 groups = ["default"]
-dependencies = [
-    "typing-extensions>=4.0.0; python_version < \"3.9\"",
-]
 files = [
     {file = "annotated_types-0.7.0-py3-none-any.whl", hash = "sha256:1f02e8b43a8fbbc3f3e0d4f0f4bfc8131bcb4eebe8849b8e5c773f3a1c582a53"},
     {file = "annotated_types-0.7.0.tar.gz", hash = "sha256:aff07c09a53a08bc8cfccb9c85b05f1aa9a2a6f23728d790723543408344ce89"},
@@ -30,9 +24,6 @@ version = "3.8.1"
 requires_python = ">=3.8"
 summary = "ASGI specs, helper code, and adapters"
 groups = ["default"]
-dependencies = [
-    "typing-extensions>=4; python_version < \"3.11\"",
-]
 files = [
     {file = "asgiref-3.8.1-py3-none-any.whl", hash = "sha256:3e1e3ecc849832fe52ccf2cb6686b7a55f82bb1d6aee72a58826471390335e47"},
     {file = "asgiref-3.8.1.tar.gz", hash = "sha256:c343bd80a0bec947a9860adb4c432ffa7db769836c64238fc34bdc3fec84d590"},
@@ -44,9 +35,6 @@ version = "3.3.6"
 requires_python = ">=3.9.0"
 summary = "An abstract syntax tree for Python with inference support."
 groups = ["default", "dev"]
-dependencies = [
-    "typing-extensions>=4.0.0; python_version < \"3.11\"",
-]
 files = [
     {file = "astroid-3.3.6-py3-none-any.whl", hash = "sha256:db676dc4f3ae6bfe31cda227dc60e03438378d7a896aec57422c95634e8d722f"},
     {file = "astroid-3.3.6.tar.gz", hash = "sha256:6aaea045f938c735ead292204afdb977a36e989522b7833ef6fea94de743f442"},
@@ -60,7 +48,6 @@ summary = "A tool that automatically formats Python code to conform to the PEP 8
 groups = ["dev"]
 dependencies = [
     "pycodestyle>=2.12.0",
-    "tomli; python_version < \"3.11\"",
 ]
 files = [
     {file = "autopep8-2.3.1-py2.py3-none-any.whl", hash = "sha256:a203fe0fcad7939987422140ab17a930f684763bf7335bdb6709991dd7ef6c2d"},
@@ -127,7 +114,6 @@ dependencies = [
     "jmespath<2.0.0,>=0.7.1",
     "python-dateutil<3.0.0,>=2.1",
     "urllib3!=2.2.0,<3,>=1.25.4; python_version >= \"3.10\"",
-    "urllib3<1.27,>=1.25.4; python_version < \"3.10\"",
 ]
 files = [
     {file = "botocore-1.36.20-py3-none-any.whl", hash = "sha256:0110bf2208e4569659d0ccfca94baa4999501334397987b02712a94493cbf48b"},
@@ -146,12 +132,26 @@ files = [
 ]
 
 [[package]]
+name = "click"
+version = "8.2.0"
+requires_python = ">=3.10"
+summary = "Composable command line interface toolkit"
+groups = ["default"]
+dependencies = [
+    "colorama; platform_system == \"Windows\"",
+]
+files = [
+    {file = "click-8.2.0-py3-none-any.whl", hash = "sha256:6b303f0b2aa85f1cb4e5303078fadcbcd4e476f114fab9b5007005711839325c"},
+    {file = "click-8.2.0.tar.gz", hash = "sha256:f5452aeddd9988eefa20f90f05ab66f17fce1ee2a36907fd30b05bbb5953814d"},
+]
+
+[[package]]
 name = "colorama"
 version = "0.4.6"
 requires_python = "!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*,!=3.5.*,!=3.6.*,>=2.7"
 summary = "Cross-platform colored terminal text."
 groups = ["default", "dev"]
-marker = "sys_platform == \"win32\""
+marker = "sys_platform == \"win32\" or platform_system == \"Windows\""
 files = [
     {file = "colorama-0.4.6-py2.py3-none-any.whl", hash = "sha256:4f1d9991f5acc0ca119f9d443620b77f9d6b33703e51011c16baf57afb285fc6"},
     {file = "colorama-0.4.6.tar.gz", hash = "sha256:08695f5cb7ed6e0531a20572697297273c47b8cae5a63ffc6d6ed5c201be6e44"},
@@ -304,6 +304,17 @@ dependencies = [
 files = [
     {file = "flake8-7.1.1-py2.py3-none-any.whl", hash = "sha256:597477df7860daa5aa0fdd84bf5208a043ab96b8e96ab708770ae0364dd03213"},
     {file = "flake8-7.1.1.tar.gz", hash = "sha256:049d058491e228e03e67b390f311bbf88fce2dbaa8fa673e7aea87b7198b8d38"},
+]
+
+[[package]]
+name = "h11"
+version = "0.16.0"
+requires_python = ">=3.8"
+summary = "A pure-Python, bring-your-own-I/O implementation of HTTP/1.1"
+groups = ["default"]
+files = [
+    {file = "h11-0.16.0-py3-none-any.whl", hash = "sha256:63cf8bbe7522de3bf65932fda1d9c2772064ffb3dae62d55932da54b31cb6c86"},
+    {file = "h11-0.16.0.tar.gz", hash = "sha256:4e35b956cf45792e4caa5885e69fba00bdbc6ffafbfa020300e549b208ee5ff1"},
 ]
 
 [[package]]
@@ -609,15 +620,12 @@ groups = ["default", "dev"]
 dependencies = [
     "astroid<=3.4.0-dev0,>=3.3.5",
     "colorama>=0.4.5; sys_platform == \"win32\"",
-    "dill>=0.2; python_version < \"3.11\"",
     "dill>=0.3.6; python_version >= \"3.11\"",
     "dill>=0.3.7; python_version >= \"3.12\"",
     "isort!=5.13.0,<6,>=4.2.5",
     "mccabe<0.8,>=0.6",
     "platformdirs>=2.2.0",
-    "tomli>=1.1.0; python_version < \"3.11\"",
     "tomlkit>=0.10.1",
-    "typing-extensions>=3.10.0; python_version < \"3.10\"",
 ]
 files = [
     {file = "pylint-3.3.2-py3-none-any.whl", hash = "sha256:77f068c287d49b8683cd7c6e624243c74f92890f767f106ffa1ddf3c0a54cb7a"},
@@ -632,11 +640,9 @@ summary = "pytest: simple powerful testing with Python"
 groups = ["default", "dev"]
 dependencies = [
     "colorama; sys_platform == \"win32\"",
-    "exceptiongroup>=1.0.0rc8; python_version < \"3.11\"",
     "iniconfig",
     "packaging",
     "pluggy<2,>=1.5",
-    "tomli>=1; python_version < \"3.11\"",
 ]
 files = [
     {file = "pytest-8.3.4-py3-none-any.whl", hash = "sha256:50e16d954148559c9a74109af1eaf0c945ba2d8f30f0a3d3335edde19788b6f6"},
@@ -679,7 +685,6 @@ summary = "pytest plugin that allows you to add environment variables."
 groups = ["default"]
 dependencies = [
     "pytest>=8.3.3",
-    "tomli>=2.0.1; python_version < \"3.11\"",
 ]
 files = [
     {file = "pytest_env-1.1.5-py3-none-any.whl", hash = "sha256:ce90cf8772878515c24b31cd97c7fa1f4481cd68d588419fd45f10ecaee6bc30"},
@@ -858,6 +863,21 @@ files = [
 ]
 
 [[package]]
+name = "uvicorn"
+version = "0.34.2"
+requires_python = ">=3.9"
+summary = "The lightning-fast ASGI server."
+groups = ["default"]
+dependencies = [
+    "click>=7.0",
+    "h11>=0.8",
+]
+files = [
+    {file = "uvicorn-0.34.2-py3-none-any.whl", hash = "sha256:deb49af569084536d269fe0a6d67e3754f104cf03aba7c11c40f01aadf33c403"},
+    {file = "uvicorn-0.34.2.tar.gz", hash = "sha256:0e929828f6186353a80b58ea719861d2629d766293b6d19baf086ba31d4f3328"},
+]
+
+[[package]]
 name = "virtualenv"
 version = "20.28.0"
 requires_python = ">=3.8"
@@ -866,7 +886,6 @@ groups = ["default"]
 dependencies = [
     "distlib<1,>=0.3.7",
     "filelock<4,>=3.12.2",
-    "importlib-metadata>=6.6; python_version < \"3.8\"",
     "platformdirs<5,>=3.9.1",
 ]
 files = [
